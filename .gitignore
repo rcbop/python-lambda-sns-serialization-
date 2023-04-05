@@ -1,0 +1,6 @@
+.venv
+**/*.egg-info
+*/build
+**/*.zip
+output.txt
+__pycache__

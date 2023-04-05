@@ -1,0 +1,19 @@
+---
+version: "3.3"
+
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=lambda,sns,sqs
+      - DEBUG=1
+    volumes:
+      - .localstack/startup.sh:/etc/localstack/init/ready.d/startup.sh
+      - localstack-data:/var/lib/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  localstack-data:
